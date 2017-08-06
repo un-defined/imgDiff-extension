@@ -1,0 +1,55 @@
+{
+    "manifest_version": 2,
+
+    // 扩展的名称
+    "name": "天目",
+
+    // 扩展的版本
+    "version": "1.0.0",
+
+    // 扩展的描述
+    "description": "我的第一个Chrome扩展",
+
+    // 扩展相关图标文件的位置
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+
+    // 
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    },
+
+    // 
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["js/content.js"]
+        }
+    ],
+
+    // 指定扩展的图标放在Chrome的工具栏中
+    "browser_action": {
+
+        // 定义了相应图标文件的位置
+        "default_icon": {
+            "19": "images/icon19.png",
+            "38": "images/icon38.png"
+        },
+
+        // 当用户鼠标悬停于扩展图标上所显示的文字
+        "default_title": "我的时钟",
+
+        // 当用户单击扩展图标时所显示页面的文件位置
+        "default_popup": "popup.html"
+    },
+
+    // 
+    "permissions": [
+        "contextMenus"
+    ]
+}
