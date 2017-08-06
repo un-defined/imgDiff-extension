@@ -35,9 +35,10 @@
     ],
 
     // 指定扩展的图标放在Chrome的工具栏中
-    "browser_action": {
+    /* "browser_action": {
 
         // 定义了相应图标文件的位置
+        // TODO 旋转icon [http://www.ituring.com.cn/book/miniarticle/60396]
         "default_icon": {
             "19": "images/icon19.png",
             "38": "images/icon38.png"
@@ -48,10 +49,11 @@
 
         // 当用户单击扩展图标时所显示页面的文件位置
         "default_popup": "popup.html"
-    },
+    }, */
 
     // 
     "permissions": [
-        "contextMenus"
+        "contextMenus",
+        "storage"
     ]
 }
