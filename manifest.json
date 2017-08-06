@@ -17,18 +17,18 @@
         "128": "images/icon128.png"
     },
 
-    // 
+    // 可以包含三种属性，分别是scripts、page和persistent
     "background": {
         "scripts": [
             "js/background.js"
         ]
     },
 
-    // 
+    // content_scripts中的脚本只是共享页面的DOM，而并不共享页面内嵌JavaScript的命名空间
     "content_scripts": [
         {
-            "matches": ["*://*/*"],
-            "js": ["js/content.js"]
+            "matches": ["*://*/*"],         // 哪些页面会被注入脚本
+            "js": ["js/content.js"]         // 对应要注入的样式表和JavaScript
         }
     ],
 
