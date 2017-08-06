@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detect different between two pics</title>
+</head>
+<body>
+    <p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation">Reference</a>
+    </p>
+    <img id="img1" src="./images/cartoon1.png" alt="pic1">
+    <img id="img2" src="./images/cartoon2.png" alt="pic2">
+    <button id="raw">Show raw diff</button>
+    <button id="mono">Show mono diff</button>
+    <canvas id="canvas"></canvas>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        var img1 = document.getElementById('img1');
+        var img2 = document.getElementById('img2');
+        var canvas = document.getElementById('canvas');
+
+        $('#raw').click(rawDiff);
+        $('#mono').click(monoDiff);
+
+        function rawDiff() {
+            canvas.width = Math.max(img1.naturalWidth, img2.naturalWidth);
+            canvas.height = Math.max(img1.naturalHeight, img2.naturalHeight);
+            canvas.style.display = 'inline-block';
+
+            var context = canvas.getContext('2d');
+            context.globalCompositeOperation = 'difference';
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(img1, 0, 0);
+            context.drawImage(img2, 0, 0);
+        }
+
+        function monoDiff() {
+            // still need to do raw diff stuff first
+            rawDiff();
+
+            var context = canvas.getContext('2d');
+
+            var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            var rgba = imageData.data;
+            for (var i = 0; i < rgba.length; i += 4) {
+                var pixelDiff = rgba[i] * 0.3 + rgba[i + 1] * 0.6 + rgba[i + 2] * 0.1;
+                rgba[i] = 0;
+                rgba[i + 1] = pixelDiff;
+                rgba[i + 2] = 0;
+            }
+
+            // clear raw diff pixels and draw new mono diff pixels
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.putImageData(imageData, 0, 0);
+        }
+    });
+</script>
+</html>
