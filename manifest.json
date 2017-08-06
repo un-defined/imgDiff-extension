@@ -19,9 +19,11 @@
 
     // 可以包含三种属性，分别是scripts、page和persistent
     "background": {
-        "scripts": [
+        "scripts": [                // 会在扩展启动时自动创建一个包含所有指定脚本的页面
             "js/background.js"
         ]
+        // "page": "backpage.html",    // 会将指定的HTML文件作为后台页面运行
+        // "persistent": false         // 当其值为true时，表示扩展将一直在后台运行，无论其是否正在工作
     },
 
     // content_scripts中的脚本只是共享页面的DOM，而并不共享页面内嵌JavaScript的命名空间

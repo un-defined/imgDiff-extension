@@ -14,7 +14,7 @@ function translate(info, tab){
 
 function setPic1(info, tab) {
     console.log(info, tab);
-    localStorage.setItem('KKK', JSON.stringify(info));ß
+    localStorage.setItem('KKK', JSON.stringify(info));
     window.open( 'http://www.baidu.com', '_blank' );
 }
 
