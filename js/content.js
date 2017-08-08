@@ -4,3 +4,11 @@ window.onmouseup = function(e){
         chrome.runtime.sendMessage(selection.toString());
     }
 }
+
+window.oncontextmenu = function() {
+    console.log('Context: ', arguments)
+}
+
+chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
+    console.log('HH');
+});
