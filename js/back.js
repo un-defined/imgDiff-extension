@@ -1,6 +1,26 @@
-console.log( 'Log from back page' );
-
 $(function(){
+    console.log( 'Log from back page' );
+
+    chrome.contextMenus.create({
+        'type':'normal',
+        'title':'设为图片一',
+        'contexts':['image'],
+        'id':'pic1',
+        'onclick':function(){
+            console.log( 'M1: ', arguments )
+        }
+    });
+
+    chrome.contextMenus.create({
+        'type':'normal',
+        'title':'设为图片二',
+        'contexts':['image'],
+        'id':'pic2',
+        'onclick':function(){
+            console.log( 'M2: ', arguments )
+        }
+    });
+
     var img1 = document.getElementById('img1');
     var img2 = document.getElementById('img2');
     var canvas = document.getElementById('canvas');
