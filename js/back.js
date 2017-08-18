@@ -3,21 +3,22 @@ $(function(){
 
     chrome.contextMenus.create({
         'type':'normal',
-        'title':'设为图片一',
+        'title':'Item-1',
         'contexts':['image'],
-        'id':'pic1',
-        'onclick':function(){
-            console.log( 'M1: ', arguments )
+        'id':'item1',
+        'onclick':function(info, tab){
+            console.warn('Click menu item-1 ', info, tab );
+            document.getElementById('img1').src = info.srcUrl;
         }
     });
 
     chrome.contextMenus.create({
         'type':'normal',
-        'title':'设为图片二',
+        'title':'Item-2',
         'contexts':['image'],
-        'id':'pic2',
+        'id':'item2',
         'onclick':function(){
-            console.log( 'M2: ', arguments )
+            console.warn('Click menu item-2 ', info, tab );
         }
     });
 
