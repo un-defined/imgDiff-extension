@@ -17,8 +17,17 @@ $(function(){
         'title':'Item-2',
         'contexts':['image'],
         'id':'item2',
-        'onclick':function(){
+        'onclick':function(info, tab){
             console.warn('Click menu item-2 ', info, tab );
+            /* chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+                chrome.tabs.sendMessage(tabs[0].id, info, function(res){
+                    console.log(res);
+                });
+            }); */
+            document.getElementById('img2').src = info.srcUrl;
+            chrome.tabs.sendMessage(tab.id, rawDiff(), function(res){
+                console.log(res);
+            });
         }
     });
 
@@ -39,6 +48,8 @@ $(function(){
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.drawImage(img1, 0, 0);
         context.drawImage(img2, 0, 0);
+
+        return canvas.toDataURL("image/png");
     }
 
     function monoDiff() {

@@ -1,3 +1,5 @@
+let t = null;
+
 window.onmouseup = function(e){
     var selection = window.getSelection();
     if(selection.anchorOffset != selection.extentOffset){
@@ -5,10 +7,13 @@ window.onmouseup = function(e){
     }
 }
 
-window.oncontextmenu = function() {
-    console.log('Context: ', arguments)
+window.oncontextmenu = function(e) {
+    console.log('Context: ', e);
+    console.log('Target: ', e.target);
+    t = e.target;
 }
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
-    console.log('HH');
+    console.log('Content.js receive massage: ', arguments);
+    t.src = message;
 });
