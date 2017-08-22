@@ -1,15 +1,13 @@
 let t = null;
 
-window.onmouseup = function(e){
+/* window.onmouseup = function(e){
     var selection = window.getSelection();
     if(selection.anchorOffset != selection.extentOffset){
         chrome.runtime.sendMessage(selection.toString());
     }
-}
+} */
 
 window.oncontextmenu = function(e) {
-    console.log('Context: ', e);
-    console.log('Target: ', e.target);
     t = e.target;
 }
 
