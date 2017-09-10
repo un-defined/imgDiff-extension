@@ -1,6 +1,6 @@
 ### 开挂人生
 --------
-####前戏
+#### 前戏
 
 前段时间看了篇蛮有意思的文章《 [MOTION DETECTION WITH JAVASCRIPT](http://codersblock.com/blog/motion-detection-with-javascript/) 》（《 [使用JavaScript进行运动检测](http://www.zcfy.cc/article/732) 》）
 
@@ -75,7 +75,7 @@
 
 基本属性包括扩展的名称（name）、版本（version）、描述（description）、图标位置（icons）和 manifest 版本（manifest_version）等信息。其中，name、version 和 manifest_version 是必须的，而且 manifest_version 必须为2。
 
-####渐入佳境
+#### 渐入佳境
 
 我为插件的规划的功能是：用户在找茬游戏页面，首先在第一张图片上右键鼠标，选择插件的右键菜单选项“设为参照图像”。然后在第二张图片上右键鼠标，选择插件的右键菜单选项“与参照图像对比”。这时插件会将两张图片的差异计算出来，并且将第二张图片设为处理后的图片， 这时用户就可以直接点击图上的差异处就可以轻松完成游戏了💯
 
@@ -158,7 +158,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
 这里注册了要监听的消息， 当背景页处理完图片后发送消息（这里的消息体是处理完后的 base64 数据）到 Content script , content script 将对比图片设为处理后的图片，如此一来，用户就能清晰的知道两张图片的差异在哪儿了。
 ![对比结果](https://raw.githubusercontent.com/un-defined/imgDiff-extension/master/images/screenshot_3.png)
 
-####高潮
+#### 高潮
 图像处理的核心代码如下：
 ```javascript
 function rawDiff() {
