@@ -2,19 +2,19 @@
     "manifest_version": 2,
 
     // 扩展的名称
-    "name": "天目",
+    "name": "God's eye",
 
     // 扩展的版本
     "version": "1.0.0",
 
     // 扩展的描述
-    "description": "我的第一个Chrome扩展",
+    "description": "My first chrome extension",
 
     // 扩展相关图标文件的位置
     "icons": {
-        "16": "images/icon16.png",
-        "48": "images/icon48.png",
-        "128": "images/icon128.png"
+        "16": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
     },
 
     // 可以包含三种属性，分别是scripts、page和persistent
